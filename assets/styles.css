@@ -1,0 +1,154 @@
+/* ---------------------------------------------------------- */
+/* theme*/
+/* ---------------------------------------------------------- */
+
+.nav-bg {
+  background-color: rgba(77, 95, 138, 1);
+}
+
+.navbar-light {
+  background-color: rgba(77, 95, 138, 1);
+  color: rgba(206, 172, 104, 1);
+}
+
+body,
+.light-theme {
+  background-color: rgb(120, 133, 161);
+  margin: 0;
+}
+
+.btn-primary {
+  background-color: rgba(134, 67, 134, 1);
+  border: 1px solid rgba(134, 67, 134, 1);
+  width: 250px;
+}
+
+.btn-primary:hover {
+  background-color: rgba(116, 41, 116, 1);
+  border: 1px solid rgba(116, 41, 116, 1);
+}
+
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-color: rgba(116, 41, 116, 1);
+  border: 1px solid rgba(116, 41, 116, 1);
+  box-shadow: none;
+}
+/* ---------------------------------------------------------- */
+/*Animations*/
+/* ---------------------------------------------------------- */
+
+/* ---------------------------------------------------------- */
+/* Horizontal Scroll sections */
+/* ---------------------------------------------------------- */
+
+.scrollable {
+  background-color: transparent;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.scrollable a {
+  display: inline-block;
+}
+
+.scrollable-artists {
+  background-color: transparent;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.scrollable-artists .artist-content {
+  display: inline-block;
+  margin: 10px 2px;
+}
+
+.scrollable-thumbnails .thumbnail {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.scrollable-thumbnails {
+  background-color: transparent;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+@media only screen and (min-width: 721px) {
+  .scrollable {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-decoration: none;
+  }
+}
+
+/* Scrollbar Width*/
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: rgb(193, 198, 209);
+  border-radius: 5px;
+}
+
+/* Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(89 99 119);
+  border-radius: 5px;
+}
+
+/* Scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(77, 95, 138, 1);
+}
+
+/* ---------------------------------------------------------- */
+/* Navbar */
+/* ---------------------------------------------------------- */
+
+#about-link,
+#projects-link,
+#contact-link {
+  color: white;
+  font-size: 20px;
+}
+#about-link:hover,
+#projects-link:hover,
+#contact-link:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+/* Device insert */
+.device-data {
+  width: 18rem;
+}
+
+.device-data h1 {
+  padding: 10px 0px 2px;
+  font-weight: bolder;
+}
+
+.card {
+  /* background-color: rgb(95, 79, 110); */
+}
+
+.sensor-data {
+  height: 100%;
+  text-align: center;
+  /* background-color: rgb(109, 92, 109); */
+}
+
+.sensor-value {
+  font-size: xx-large;
+}
+
+.show {
+  display: block;
+}
