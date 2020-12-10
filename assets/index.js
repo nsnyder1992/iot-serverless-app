@@ -8,7 +8,10 @@ $(document).ready(() => {
   let getLastUpdate = async () => {
     await fetch(baseUrl + lastUpdate)
       .then((res) => res.json())
-      .then((json) => displayDevices(json));
+      .then((json) => {
+        displayDevices(json);
+        localStorage.setItem("time", Date.now());
+      });
   };
 
   function displayDevices(devices) {
@@ -71,7 +74,6 @@ $(document).ready(() => {
 
   if (Date.now() - time > timeOut) {
     getLastUpdate();
-    localStorage.setItem("time", Date.now());
   } else {
     if (devices !== "") displayDevices(devices);
     console.log(
