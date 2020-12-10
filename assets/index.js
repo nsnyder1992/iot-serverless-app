@@ -64,28 +64,19 @@ $(document).ready(() => {
     });
   }
 
-  let timeInt = 5000;
   let timeOut = 600000;
-  let canRefresh = localStorage.getItem("refresh") || true;
   let time = parseInt(localStorage.getItem("time")) || 0;
 
   let devices = localStorage.getItem("devices") || "";
 
-  if (canRefresh == "true") {
+  if (Date.now() - time > timeOut) {
     getLastUpdate();
-    localStorage.setItem("refresh", false);
+    localStorage.setItem("time", Date.now());
   } else {
     if (devices !== "") displayDevices(devices);
-  }
-
-  window.setInterval(() => {
-    time = parseInt(localStorage.getItem("time"));
-    time += timeInt;
-    localStorage.setItem("time", time);
-  }, timeInt);
-
-  if (time >= timeOut) {
-    localStorage.setItem("refresh", true);
-    localStorage.setItem("time", 0);
+    console.log(
+      Math.floor(timeOut / 60000 - (Date.now() - time) / 60000) +
+        " min remaining"
+    );
   }
 });
