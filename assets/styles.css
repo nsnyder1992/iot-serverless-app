@@ -130,19 +130,23 @@ body,
   width: 18rem;
 }
 
+#device-insert {
+  color: #010101;
+  text-decoration: none;
+}
+
+#device-insert:hover {
+  color: #010101;
+}
+
 .device-data h1 {
   padding: 10px 0px 2px;
   font-weight: bolder;
 }
 
-.card {
-  /* background-color: rgb(95, 79, 110); */
-}
-
 .sensor-data {
   height: 100%;
   text-align: center;
-  /* background-color: rgb(109, 92, 109); */
 }
 
 .sensor-value {

@@ -10,6 +10,7 @@ $(document).ready(() => {
     await fetch(corsProxy + baseUrl + lastUpdate)
       .then((res) => res.json())
       .then((json) => {
+        json = JSON.stringify(json);
         displayDevices(json);
         localStorage.setItem("time", Date.now());
       })
@@ -17,7 +18,7 @@ $(document).ready(() => {
   };
 
   function displayDevices(devices) {
-    localStorage.setItem("devices", "JSON.stringify(devices)");
+    localStorage.setItem("devices", devices);
 
     if (!(devices instanceof Object)) devices = JSON.parse(devices);
 
@@ -53,20 +54,36 @@ $(document).ready(() => {
 
         sensorContent.className = "sensor-data list-group-item text-center";
         para.className = "sensor-name lead";
-        pTime.className = "sensor-time";
+        pTime.className = "timestamp";
         span.className = "sensor-value";
 
         para.innerText = sensor.sensor;
-        pTime.innerText = devTime;
+        pTime.innerText = "Timestamp: Today " + formatDate(devTime);
         span.innerText = sensor.value;
 
         sensorContent.appendChild(para);
         sensorContent.appendChild(span);
+        sensorContent.appendChild(pTime);
         card.appendChild(sensorContent);
       });
 
       devInsert.appendChild(deviceContent);
     });
+  }
+
+  function formatDate(date) {
+    let d = new Date(date);
+    let hour =
+      d.getHours() > 12
+        ? d.getHours() - 12
+        : d.getHours() == 0
+        ? 12
+        : d.getHours();
+    let min = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
+    let sec = d.getSeconds() < 10 ? "0" + d.getSeconds() : d.getSeconds();
+    let am_pm = d.getHours() > 12 ? "pm" : "am";
+
+    return hour + ":" + min + ":" + sec + am_pm;
   }
 
   let timeOut = 600000;
