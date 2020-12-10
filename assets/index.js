@@ -13,7 +13,7 @@ $(document).ready(() => {
   };
 
   function displayDevices(devices) {
-    localStorage.setItem("devices", JSON.stringify(devices));
+    localStorage.setItem("devices", "JSON.stringify(devices)");
 
     if (!(devices instanceof Object)) devices = JSON.parse(devices);
 
@@ -65,27 +65,6 @@ $(document).ready(() => {
     });
   }
 
-  let fallback = JSON.stringify({
-    id: "lastUpdate",
-    _rid: "zGchAONATiEEAAAAAAAAAA==",
-    _self: "dbs/zGchAA==/colls/zGchAONATiE=/docs/zGchAONATiEEAAAAAAAAAA==/",
-    _ts: 1607626931,
-    _etag: '"00008b78-0000-0700-0000-5fd270b30000"',
-    time: "2020-12-10 14:02:09.126735",
-    devices: [
-      {
-        name: "Raspberry Pi",
-        sensors: [
-          {
-            sensor: "CPU Temp",
-            value: "52.1'C\n",
-          },
-        ],
-      },
-    ],
-  });
-  localStorage.setItem("devices", fallback);
-
   let timeInt = 5000;
   let timeOut = 3600000;
   let canRefresh = localStorage.getItem("refresh") || true;
@@ -98,11 +77,10 @@ $(document).ready(() => {
     getLastUpdate();
     localStorage.setItem("refresh", false);
   } else {
-    displayDevices(devices);
+    if (devices !== "") displayDevices(devices);
   }
 
   window.setInterval(() => {
-    console.log(localStorage.getItem("refresh"));
     time = parseInt(localStorage.getItem("time"));
     time += timeInt;
     localStorage.setItem("time", time);
@@ -111,6 +89,5 @@ $(document).ready(() => {
   if (time >= timeOut) {
     localStorage.setItem("refresh", true);
     localStorage.setItem("time", 0);
-    console.log(localStorage.getItem("refresh"), localStorage.getItem("time"));
   }
 });
