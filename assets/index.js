@@ -65,11 +65,10 @@ $(document).ready(() => {
   }
 
   let timeInt = 5000;
-  let timeOut = 3600000;
+  let timeOut = 600000;
   let canRefresh = localStorage.getItem("refresh") || true;
   let time = parseInt(localStorage.getItem("time")) || 0;
 
-  console.log(typeof canRefresh, canRefresh);
   let devices = localStorage.getItem("devices") || "";
 
   if (canRefresh == "true") {
