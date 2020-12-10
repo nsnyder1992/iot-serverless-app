@@ -12,7 +12,8 @@ $(document).ready(() => {
       .then((json) => {
         displayDevices(json);
         localStorage.setItem("time", Date.now());
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   function displayDevices(devices) {
