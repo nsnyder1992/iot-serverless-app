@@ -49,8 +49,8 @@ let getLastUpdate = async () => {
     .then((res) => res.json())
     .then((json) => {
       json = JSON.stringify(json);
+      $("#azure-min").text(minsLeft());
       displayDevices(json);
-      localStorage.setItem("time", Date.now());
     })
     .catch((err) => {
       console.log(err);
@@ -136,14 +136,18 @@ function displayDevices(devices) {
 }
 
 //format timestamp on sensor data
-function formatDate(date, timeOfDay = true) {
+function formatDate(date, timeOfDay = true, twelveHour = true) {
   let d = new Date(date);
-  let hour =
-    d.getHours() > 12
-      ? d.getHours() - 12
-      : d.getHours() == 0
-      ? 12
-      : d.getHours();
+  let hour = d.getHours();
+  if (twelveHour) {
+    hour =
+      d.getHours() > 12
+        ? d.getHours() - 12
+        : d.getHours() == 0
+        ? 12
+        : d.getHours();
+  }
+
   hour = hour < 10 ? "0" + hour : hour;
   let min = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
   let sec = d.getSeconds() < 10 ? "0" + d.getSeconds() : d.getSeconds();
@@ -173,7 +177,7 @@ function checkRefresh() {
 
     //create a string containing next date
     let dateStr = date.toDateString();
-    dateStr += " " + formatDate(date, false);
+    dateStr += " " + formatDate(date, false, false);
 
     //store date for later
     localStorage.setItem("date", dateStr);
@@ -189,10 +193,11 @@ function checkRefresh() {
 }
 
 let minsLeft = () => {
+  //update minutes left
   date = new Date();
   let mins = Math.floor((storageDate - date) / 60000);
   mins = mins < 0 ? "Refresh now!" : mins < 1 ? "<1min" : mins + "mins";
-  console.log(mins);
+
   return mins;
 };
 
