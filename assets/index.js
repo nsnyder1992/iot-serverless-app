@@ -1,5 +1,4 @@
 //urls
-const corsProxy = "https://cors-anywhere.herokuapp.com/";
 const baseUrl =
   "https://iot-portfolio-app.azurewebsites.net/api/HttpTrigger1?code=l72Ca3JksC7iCbCGzIgDIAVLbHi57D1ub1vp81Hk0T9oXGgJAdwAnw==";
 
@@ -46,7 +45,7 @@ let getLastUpdate = async () => {
   devInsert.appendChild(loading);
 
   //fetch
-  await fetch(corsProxy + baseUrl + lastUpdate)
+  await fetch(baseUrl + lastUpdate)
     .then((res) => res.json())
     .then((json) => {
       json = JSON.stringify(json);
