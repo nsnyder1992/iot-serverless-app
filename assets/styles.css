@@ -153,6 +153,12 @@ body,
   font-size: xx-large;
 }
 
+#azure-loading {
+  position: relative;
+  top: 100px;
+  left: -100px;
+}
+
 .show {
   display: block;
 }

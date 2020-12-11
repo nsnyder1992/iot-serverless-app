@@ -35,21 +35,34 @@
     <div class="container thumbnail-content serverless-content" id="serverless-content">
         <div class="row">
             <h2 class="col-lg-12 text-center">Serverless Azure IoT App</h2>
-            <div class="col-lg-5 text-center"><a href="https://nsnyder1992.github.io/iot-serverless-app/"
-                    id="device-insert"></a></div>
+            <div class="col-lg-5">
+                <div class="container text-center">
+                    <a href="https://nsnyder1992.github.io/iot-serverless-app/" target="blank" id="device-insert">
+                        <i class="fas fa-cloud text-center fa-10x text-white" id="azure-cloud"></i>
+                    </a>
+                </div>
+            </div>
             <div class="col-lg-7">
-                <p class="lead text-left"><strong>Description:</strong>Using Azure's cloud platform, I created this
-                application by routing the messages sent from my IoT Device project's IoT Hub to a Function App. The function app then
-                logs the message in a NoSQL DB. And then when this page loads it sends a request to the Function app and
-                gets the last update. Now please keep in mind, in order to keep the cost down for the iot hub and function app, I
-                only update this information every 10min. You can check the code out on my github. Click the github icon
-                below.
+                <p class="lead text-left"><strong>Description:</strong> Using Azure's cloud platform, I created this
+                    application by routing the messages sent from my IoT Device project's IoT Hub to a Function App. The
+                    function app then
+                    logs the message in a NoSQL DB. When you click the button below it sends a request to the Function app and
+                    gets the latest update. Now please keep in mind, in order to keep the cost down for the iot hub and function
+                    app, I
+                    only update this information every 10 minutes. You can check the code out on my github. Click the github
+                    icon
+                    below.
                 </p>
-                <div id="spotify-insert"></div>
+                <div class="col text-center">
+                    <span class="btn btn-lg btn-primary" href="" role="button" id="azure-btn">Try it out!</span>
+                </div>
+                <div class="contianer text-center">
+                    <p class="text-center">Next available refresh: <strong><span id="azure-min">Click button</span></strong></p>
+                </div>
             </div>
             <div class="col-lg-12 text-center">
-                <a href="https://github.com/nsnyder1992/iot-serverless-app" target="blank" class="download"
-                    target="blank"><i class="fab fa-github fa-3x grow"></i></a>
+                <a href="https://github.com/nsnyder1992/iot-serverless-app" target="blank" class="download" target="blank"><i
+                        class="fab fa-github fa-3x grow"></i></a>
             </div>
         </div>
     </div>
